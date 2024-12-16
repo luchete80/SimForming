@@ -87,10 +87,16 @@ Acoplado: El enfoque acoplado o acoplado por bloques tiene como objetivo maximiz
 
 Semi-Acoplado: Los enfoques semi-acoplados se encuentran entre los enfoques segregados y acoplados. Uno de estos enfoques introduce la presión hidrostática como una incógnita adicional, donde el desplazamiento (o velocidad) y la presión se tratan implícitamente de manera acoplada, mientras que el acoplamiento entre componentes del desplazamiento en la ecuación de momento aún se trata explícitamente de manera diferida. Estos enfoques semi-acoplados son similares a los enfoques acoplados utilizados en los solucionadores de fluidos, por ejemplo, pUCoupledFoam en foam-extend.
 
-\newline
+
 \section{Herramientas Actuales}
 \subsection{Interfaz Gráfica}
+Se está desarrollando una interfaz gráfica desde cero, que sirve para armar los inputs de los modelos y exportarlos a los diferentes solvers. Este programa tiene la facilidad de poder insertar scripts de python para automatizar las acciones, lo cual lo hace muy robusto. En este \href{https://github.com/luchete80/WeldFormGUI}{enlace} se presenta el repositorio, y se muestra a continuación una imagen de la interfaz.
+\\
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/20241114.png}
+\end{figure}
 
+A continuación se muestra un resumen de las diferentes herramientas utilizadas según el proceso. 
 
 \begin{figure}
 \includegraphics[width=1.0\textwidth]{images/20241126_Tools.png}
@@ -110,7 +116,10 @@ Este solver trabaja con elementos de tipo lineal, es explícito y es escrito por
 
 \subsection{Solvers SPH}
 \subsubsection{WeldFormSPH-CPU}
-Esta herramienta fue desarrollada prácticamente desde cero por los autores, a partir de la herramienta \href{https://github.com/mghkorzani/persiansph}{PersianSPH}. Se han escrito alrededor de 40 mil lineas de código desde el proyecto original. Calcula por el método SPH procesos que involucran contacto, acoplamiento térmico, y materiales de \textit{Johnson Cook, Hollomon}. Se han obtenido resultados muy aceptables para proceso de extrusión axilsimétrico.
+Esta herramienta fue desarrollada prácticamente desde cero por los autores, a partir de la herramienta \href{https://github.com/mghkorzani/persiansph}{PersianSPH}. Se han escrito alrededor de 40 mil lineas de código desde el proyecto original. Calcula por el método SPH procesos que involucran contacto, acoplamiento térmico, y materiales de \textit{Johnson Cook, Hollomon}. Se han obtenido resultados muy aceptables para proceso de extrusión axilsimétrico, que se muestran en la figurea.
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{images/20240723_01.png}
+\end{figure}
 En este \href{https://github.com/luchete80/weldform}{link} se encuentra el código fuente listo para compilar. 
 
 \subsubsection{WeldFormSPH-GPU - Propio}
@@ -126,10 +135,16 @@ https://www.solids4foam.com/documentation/solid-models.html
 Método FEM:
 \begin{itemize}
 \item
-Finite Element Procedures - Bathe
+Finite Element Procedures - Jlaus Jurgen. Bathe
+\end{itemize}
+\par
+
+Método FVM:
+\begin{itemize}
+\item
+Computational Methods for Fluid Dynamics. Ferzinger \& Peric.
 \end{itemize}
 
 
 
 \end{document}
-
